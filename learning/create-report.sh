@@ -1,10 +1,31 @@
-#!/bin/bash
+#!/bin/bash -x
 
 # Create a report for the month of June
 # Author: kschaefer
 
-mkdir -p reports
+if [[ ! $1 ]]; then
+    echo "Error: missing parameter: month name"
+    exit 1
+fi
+month="$1"
 
-grep "Jun" sample1.csv > reports/JUN.csv
+if [[ ! $2 ]]; then
+    dir="$2"
+else
+    dir"$HOME/reports"
+fi
 
-echo "Report created."
+input_file="sample1.csv"
+if [[ ! input_file ]]; then
+    echo "Error: input file not found."
+    exit 1
+fi
+
+mkdir -p "$dir"
+
+if grep "$month" "$input_file" > "$dir/${month}_report.csv"
+then
+    echo "Report created. $dir/${month}_report.csv"
+else
+    echo "Month $month not found. $dir/${month}_report.csv"
+fi
