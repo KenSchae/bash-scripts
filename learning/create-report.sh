@@ -3,6 +3,7 @@
 # Create a report for the month of June
 # Author: kschaefer
 
+
 if [[ ! $1 ]]; then
     echo "Error: missing parameter: month name"
     exit 1
@@ -15,6 +16,7 @@ else
     dir"$HOME/reports"
 fi
 
+# testing an idea
 input_file="sample1.csv"
 if [[ ! input_file ]]; then
     echo "Error: input file not found."
