@@ -1,5 +1,20 @@
 #!/bin/bash
 
+# This script will create a new virtual site in Apache.
+# 1. Create site directory and put a test index.html
+# 2. Set permissions
+# 3. Create Apache configuration
+# 4. Activate virtual dir and restart Apache
+# 5. Update hosts file
+#
+# Args
+# -d the full path to the web site (usually in /var/www)
+# -n the name of the virtual site
+# -o the owner of the site
+#
+#
+# Author: Ken Schaefer
+
 while getopts d:n:o: option
 do
     case "${option}"
