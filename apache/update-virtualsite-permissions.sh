@@ -9,7 +9,7 @@ read ACCOUNT
 echo "Giving Apache access to $FOLDER"
 chgrp -R www-data $FOLDER
 find $FOLDER -type d -exec chmod g+rx {} +
-find $FOLDER -type d -exec chmod g+r {} +
+find $FOLDER -type f -exec chmod g+r {} +
 
 # Give owner account read/write permission to the site
 echo "Giving ownership of $FOLDER to $ACCOUNT"
